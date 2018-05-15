@@ -1,6 +1,9 @@
 // app/sql.js
 const xt = require('/QOpenSys/QIBM/ProdData/OPS/Node6/os400/xstoolkit/lib/itoolkit');
 
+var libName="LIBNAME"; // da modificare !!!!!!!!!!!!!!!
+var progName='NODE_WS'; // da modificare !!!!!!!!!!!!!!!
+
 var express = require('express');
 var app = express();
 
@@ -11,7 +14,7 @@ app.get('/', function(req, res) {
 	var plist='';
 	
 	var conn = new xt.iConn("*LOCAL");
-	var pgm = new xt.iPgm("ZNODE_WS", {"lib":"SME_NEV"});
+	var pgm = new xt.iPgm(progname, {"lib":libname});
 	pgm.addParam(a,'10A');
 	pgm.addParam(b,'10A');
 	pgm.addParam('','20A');
